@@ -12,9 +12,9 @@ print('bot started')
 @bot.message_handler(commands=['start'])
 def send_welcome(message):
     bot.send_message(chat_id=message.chat.id,
-                     text='Good Day Trader 👋,\n\n'
+                     text='Greatings from Njogu 👋,\n\n'
                           'Welcome!! 🤝\n\n'
-                          'I will get you the current exchange rates.\n\n'
+                          'We will get you an hourly update of exchange rates.\n\n'
                           'Type /exchange to get today\'s USD/KES, EUR/KES, GBP/KES & AUD/KES rates\n\n'
                           'Type /currency to get today\'s rate for any other currency in the world\n\n'
                           'Type /trading to get advice on whether to buy or sell a currency\n\n'

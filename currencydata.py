@@ -34,11 +34,16 @@ def trade_check(ccy):
             past_rate = past_output['KES'] / past_output[ccy]
             today_rate = search_currency(ccy)
             if today_rate > past_rate:
-                return (f'Today\'s {ccy}/KES rate {today_rate}\n\n'
-                        f'is higher than yesterday\'s rate{past_rate}.\n\n'
+                return (f'Right now {ccy}/KES --> {today_rate}\n\n'
+                        f'is higher than yesterday\'s rate --> {past_rate}.\n\n'
                         f' PLEASE SELL {ccy}')
+            elif today_rate == past_rate:
+                return (f'Right now {ccy}/KES --> {today_rate}\n\n'
+                        f'is equal to yesterday\'s rate --> {past_rate}.\n\n'
+                        f'Maybe it\'s a weekend or a holiday\n\n'
+                        f' PLEASE HOLD{ccy}')
             else:
-                return (f'Today\'s {ccy}/KES rate {today_rate}\n\n'
+                return (f'Right now {ccy}/KES --> {today_rate}\n\n'
                         f'is lower than yesterday\'s rate {past_rate}.\n\n'
                         f' PLEASE BUY {ccy}')
     else:
