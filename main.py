@@ -6,8 +6,11 @@ from telegram import Update
 from  telegram.ext import Application, CommandHandler, MessageHandler, filters, ContextTypes
 # from currencydata import search_currency, trade_check
 
-TOKEN: Final = '7902047681:AAFPXJbXun-_ALXxAhCMiXTwCAf9T607MP4'
-BOT_USERNAME = '@thisawesomecurrency_bot'
+# TOKEN: Final = '7902047681:AAFPXJbXun-_ALXxAhCMiXTwCAf9T607MP4'
+# BOT_USERNAME = '@thisawesomecurrency_bot'
+
+TOKEN: Final = CONFIG.TOKEN
+BOT_USERNAME = CONFIG.BOT_USERNAME
 
 import requests
 from datetime import datetime, timedelta
@@ -45,7 +48,10 @@ def handle_response(text: str) -> str:
         currencies = list(output.keys())
         if ccy_key in currencies:
             rate = output[ccy_key]
-            return str(rate)
+            response = (f'USD is the Base rate\n\n'
+            f'{ccy_key} is trading at: {str(rate)}')
+
+            return response
         else:
             return f'{ccy_key} is invalid!'
     else:
